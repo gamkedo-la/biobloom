@@ -53,6 +53,15 @@ namespace Gameplay
         void Update()
         {
             HandleCharacterMovement();
+
+            if (Input.GetButtonDown("Fire1")) {
+                Debug.Log("Fire");
+                RaycastHit hit; 
+                if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit)) {
+                    Debug.Log(hit.collider.gameObject.name);
+                    Destroy(hit.collider.gameObject);
+                }
+            }
         }
 
         private void HandleCharacterMovement() {
