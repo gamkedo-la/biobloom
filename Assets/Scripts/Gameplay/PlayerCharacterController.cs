@@ -61,24 +61,26 @@ namespace Gameplay
 
         private void HandleCharacterRotation() {
             // horizontal character rotation
-            { 
+            {
                 // rotate the transform with the input speed around its local Y axis
-                Vector3 eulers = new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier), 0f);
-                transform.Rotate(eulers, Space.Self);
+                //Vector3 eulers = new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier), 0f);
+                //transform.Rotate(eulers, Space.Self);
+
+                //PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
+                transform.Rotate(
+                    new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier),
+                        0f), Space.Self);
             }
             // vertical camera rotation
             {
-                if (m_InputHandler.GetLookInputsVertical() != 0) {
+                // add vertical inputs to the cameras vertical angle
+                m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier;
 
-                    // add vertical inputs to the cameras vertical angle
-                    m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier;
+                // limit the cameras vertical angle to the min/max
+                m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, MinimumVerticalLookAngle, MaximumVerticalLookAngle);
 
-                    // limit the cameras vertical angle to the min/max
-                    m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, MinimumVerticalLookAngle, MaximumVerticalLookAngle);
-
-                    // apply the vertical angle as a local rotation to the camera transform along its right axis (makes it pivot up and down)
-                    PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
-                }
+                // apply the vertical angle as a local rotation to the camera transform along its right axis (makes it pivot up and down)
+                PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
             }
         }
     }
