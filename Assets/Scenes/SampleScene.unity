@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6e37812a647f0414197c0f0d75e2fd31, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.0045547583, g: 0.8525394, b: 0.15942399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -183,6 +183,13 @@ MonoBehaviour:
   PlayerCamera: {fileID: 330585545}
   RotationSpeed: 200
   AimingRotationMultiplier: 0.4
+  CapsuleCollection: 00000000000000000000000000000000
+  CapsuleColors:
+  - Magenta
+  - Lime
+  - Mandarin
+  - Grey
+  CountDisplay: {fileID: 1887762326}
 --- !u!114 &162018680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 162018677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -7.219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -226,8 +233,9 @@ GameObject:
   - component: {fileID: 311194144}
   - component: {fileID: 311194143}
   - component: {fileID: 311194142}
+  - component: {fileID: 311194146}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Capsule Magenta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,6 +329,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &311194146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311194141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d98bb62175cf941852a29ef806b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorType: 0
 --- !u!1 &320185682
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +354,9 @@ GameObject:
   - component: {fileID: 320185685}
   - component: {fileID: 320185684}
   - component: {fileID: 320185683}
+  - component: {fileID: 320185687}
   m_Layer: 0
-  m_Name: Capsule (2)
+  m_Name: Capsule Lime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +450,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320185687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320185682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d98bb62175cf941852a29ef806b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorType: 1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +959,9 @@ GameObject:
   - component: {fileID: 1643867760}
   - component: {fileID: 1643867759}
   - component: {fileID: 1643867758}
+  - component: {fileID: 1643867762}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: Capsule Mandarin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,6 +1055,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643867762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643867757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d98bb62175cf941852a29ef806b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorType: 3
 --- !u!1 &1790333520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,8 +1294,9 @@ GameObject:
   - component: {fileID: 2028498143}
   - component: {fileID: 2028498142}
   - component: {fileID: 2028498141}
+  - component: {fileID: 2028498145}
   m_Layer: 0
-  m_Name: Capsule (3)
+  m_Name: Capsule Grey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,6 +1390,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028498145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028498140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d98bb62175cf941852a29ef806b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorType: 2
 --- !u!1001 &1740594792103837137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,12 +1449,12 @@ PrefabInstance:
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1261
+      value: 1263.5432
       objectReference: {fileID: 0}
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 545
+      value: 565.0956
       objectReference: {fileID: 0}
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
@@ -1431,12 +1494,12 @@ PrefabInstance:
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 630.5
+      value: 629.2284
       objectReference: {fileID: 0}
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 272.5
+      value: 282.5478
       objectReference: {fileID: 0}
     - target: {fileID: 5890160542862287581, guid: fe47570a1d3f4714fa916167c513489a,
         type: 3}
