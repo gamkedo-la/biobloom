@@ -3,6 +3,27 @@
 
 #include "Timer.h"
 
+
+void UTimer::ProgressTime()
+{
+	//add worlds delta time to current time
+	fCurrentTime += GetWorld()->GetDeltaSeconds();
+
+	if (fCurrentTime < fMaxTime)
+	{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(fCurrentTime));
+
+	}
+	else
+	{
+
+		MaxTimeReached();
+		//set current time back to zero
+		fCurrentTime = 0;
+	}
+
+}
+
 // Sets default values for this component's properties
 UTimer::UTimer()
 {
@@ -12,7 +33,6 @@ UTimer::UTimer()
 
 	// ...
 }
-
 
 // Called when the game starts
 void UTimer::BeginPlay()
