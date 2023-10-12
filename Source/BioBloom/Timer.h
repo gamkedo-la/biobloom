@@ -8,6 +8,8 @@
 #include "Timer.generated.h"
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTimerFinished);
+
 UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BIOBLOOM_API UTimer : public UActorComponent
 {
@@ -22,6 +24,9 @@ public:
 	//progress the currenttime the timer has been active
 
 #pragma region Events
+	UPROPERTY(BlueprintAssignable)
+	FTimerFinished TimerFinished;
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void MaxTimeReached();
 #pragma endregion
