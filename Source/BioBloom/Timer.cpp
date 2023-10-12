@@ -11,13 +11,19 @@ void UTimer::ProgressTime()
 
 	if (fCurrentTime < fMaxTime)
 	{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(fCurrentTime));
+		//see delta time
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(fCurrentTime));
 
 	}
 	else
 	{
 
 		MaxTimeReached();
+
+
+		//Broadcast event to all subscribers
+		TimerFinished.Broadcast();
+
 		//set current time back to zero
 		fCurrentTime = 0;
 	}
