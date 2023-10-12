@@ -16,7 +16,11 @@ class BIOBLOOM_API UTimer : public UActorComponent
 	GENERATED_BODY()
 	
 	UFUNCTION(BlueprintCallable)
-	void ProgressTime();  // Removed static
+	void ProgressTime();
+
+	UFUNCTION(BlueprintCallable)
+	void ResetTimer();
+
 public:	
 
 	// Sets default values for this component's properties
@@ -37,7 +41,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float fCurrentTime;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool TimerPaused;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

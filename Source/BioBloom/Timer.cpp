@@ -30,6 +30,11 @@ void UTimer::ProgressTime()
 
 }
 
+void UTimer::ResetTimer()
+{
+	fCurrentTime = 0;
+}
+
 // Sets default values for this component's properties
 UTimer::UTimer()
 {
