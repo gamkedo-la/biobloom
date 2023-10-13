@@ -19,6 +19,9 @@ class BIOBLOOM_API UTimer : public UActorComponent
 	void ProgressTime();
 
 	UFUNCTION(BlueprintCallable)
+	void PauseTimer(bool pause);
+
+	UFUNCTION(BlueprintCallable)
 	void ResetTimer();
 
 public:	

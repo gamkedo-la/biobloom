@@ -30,6 +30,11 @@ void UTimer::ProgressTime()
 
 }
 
+void UTimer::PauseTimer(bool pause)
+{
+	TimerPaused = pause;
+}
+
 void UTimer::ResetTimer()
 {
 	fCurrentTime = 0;
@@ -49,7 +54,7 @@ UTimer::UTimer()
 void UTimer::BeginPlay()
 {
 	Super::BeginPlay();
-
+	TimerPaused = false;
 	// ...
 	
 }
@@ -59,6 +64,9 @@ void UTimer::BeginPlay()
 void UTimer::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	if (!TimerPaused)
+		ProgressTime();
 
 	// ...
 }
