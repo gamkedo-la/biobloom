@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "Timer.h"
 #include "NeedStat.h"
 #include "Plant_Actor.generated.h"
@@ -12,15 +13,29 @@ UCLASS(Blueprintable,ClassGroup = (Custom), meta = (BlueprintSpawnableActor))
 class BIOBLOOM_API APlant_Actor : public AActor
 {
 	GENERATED_BODY()
-	
+	float growth;
+	UFUNCTION()
+	void Grow();
 public:	
 	// Sets default values for this actor's properties
 	APlant_Actor();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float growRate;
+
+	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UStaticMeshComponent* plantMesh;
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UNeedStat* waterStat;
 	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UTimer* waterStatTimer;
+
+	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UTimer* growthTimer;
+
+	UFUNCTION(BlueprintCallable)
+	void SetPlantSize(const float size);
 
 protected:
 	// Called when the game starts or when spawned
