@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Timer.h"
 #include "NeedStat.h"
 #include "Plant_Actor.generated.h"
 
@@ -17,7 +18,9 @@ public:
 	APlant_Actor();
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
-	class UNeedStat* waterStat;
+	UNeedStat* waterStat;
+	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UTimer* waterStatTimer;
 
 protected:
 	// Called when the game starts or when spawned

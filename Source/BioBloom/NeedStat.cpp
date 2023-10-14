@@ -24,6 +24,11 @@ void UNeedStat::ChangeStat(float amountChanged)
 		currentStat = 0;
 }
 
+void UNeedStat::SetTimer(UTimer* timer)
+{
+	statTimer = timer;
+}
+
 float UNeedStat::GetStat()
 {
 	return currentStat;

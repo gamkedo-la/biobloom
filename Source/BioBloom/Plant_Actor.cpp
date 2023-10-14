@@ -10,7 +10,9 @@ APlant_Actor::APlant_Actor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	waterStat = CreateDefaultSubobject<UNeedStat>("WaterComponent");
+	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
+	waterStatTimer = CreateDefaultSubobject<UTimer>("WaterStatTimer");
+
 }
 
 // Called when the game starts or when spawned

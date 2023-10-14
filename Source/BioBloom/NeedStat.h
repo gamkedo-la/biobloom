@@ -8,6 +8,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Timer.h"
 #include "NeedStat.generated.h"
 
 
@@ -23,9 +24,17 @@ public:
 	float currentStat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float statMax;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTimer* statTimer;
+
 	UNeedStat();
+
 	UFUNCTION(BlueprintCallable)
 	void ChangeStat(float amountChanged);
+
+	UFUNCTION(BlueprintCallable)
+	void SetTimer(UTimer* timer);
 
 	UFUNCTION(BlueprintCallable)
 	float GetStat();
