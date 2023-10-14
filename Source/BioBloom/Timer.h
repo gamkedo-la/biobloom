@@ -8,13 +8,22 @@
 #include "Timer.generated.h"
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTimerFinished);
+
 UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BIOBLOOM_API UTimer : public UActorComponent
 {
 	GENERATED_BODY()
 	
 	UFUNCTION(BlueprintCallable)
-	void ProgressTime();  // Removed static
+	void ProgressTime();
+
+	UFUNCTION(BlueprintCallable)
+	void PauseTimer(bool pause);
+
+	UFUNCTION(BlueprintCallable)
+	void ResetTimer();
+
 public:	
 
 	// Sets default values for this component's properties
@@ -22,6 +31,9 @@ public:
 	//progress the currenttime the timer has been active
 
 #pragma region Events
+	UPROPERTY(BlueprintAssignable)
+	FTimerFinished TimerFinished;
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void MaxTimeReached();
 #pragma endregion
@@ -32,7 +44,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float fCurrentTime;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool TimerPaused;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
