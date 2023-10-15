@@ -10,15 +10,40 @@ APlant_Actor::APlant_Actor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("PlantMesh");
+	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
 	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
 	waterStatTimer = CreateDefaultSubobject<UTimer>("WaterStatTimer");
+	growthTimer = CreateDefaultSubobject<UTimer>("GrowTimer");
 
+	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
 }
+//This function should hadle growing the plant
+void APlant_Actor::Grow()
+{
+	growth += growRate;
 
+	if (growth > 1)
+		growth = 1;
+
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(growth));
+
+	SetPlantSize(growth);
+}
+void APlant_Actor::SetPlantSize(const float size)
+{
+	FVector fullSize = FVector(size);
+	plantMesh->SetWorldScale3D(fullSize);
+}
 // Called when the game starts or when spawned
 void APlant_Actor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//when plant is created growth and mesh size should always start at 0
+	growth = 0;
+	SetPlantSize(growth);
 	
 }
 
