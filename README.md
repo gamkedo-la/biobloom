@@ -10,5 +10,5 @@ do this, open `.git/hooks/post-merge` and add the following:
 
 ```
 #!/bin/sh
-exec Build.bat
+exec ./Build.bat
 ```
