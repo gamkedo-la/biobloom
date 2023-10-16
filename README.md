@@ -6,9 +6,9 @@ install directory. Make sure this is correct!
 2. With the Unreal Editor closed, run `Build.bat`.
 
 3. (Optional) If step 2 worked, you can set up a post-merge (runs when you run git pull) githook. To
-do this, open `.git/hooks/post-merge.sh` and add the following:
+do this, open `.git/hooks/post-merge` and add the following:
 
 ```
 #!/bin/sh
-exec ../../Build.bat
+exec Build.bat
 ```
