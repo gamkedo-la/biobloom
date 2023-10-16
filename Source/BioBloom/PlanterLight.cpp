@@ -33,7 +33,7 @@ void UPlanterLight::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	// ...
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, TEXT("Hello I'm an updated light message"));
+		GEngine->AddOnScreenDebugMessage(1234567, 15.f, FColor::Yellow, TEXT("Hello I'm an updated light message that overwrites itself"));
 	}
 }
 
