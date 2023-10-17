@@ -21,6 +21,8 @@ class BIOBLOOM_API UNeedStat : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float NeedAmount;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float currentStat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float statMax;
@@ -29,6 +31,9 @@ public:
 	UTimer* statTimer;
 
 	UNeedStat();
+
+	UFUNCTION(BlueprintCallable)
+	void TakeNeed();
 
 	UFUNCTION(BlueprintCallable)
 	void ChangeStat(float amountChanged);

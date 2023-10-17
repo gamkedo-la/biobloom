@@ -39,9 +39,6 @@ public:
 	float DegradationAmount = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float waterNeed;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float growRate;
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)

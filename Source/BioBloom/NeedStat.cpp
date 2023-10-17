@@ -13,6 +13,11 @@ UNeedStat::UNeedStat()
 	// ...
 }
 
+void UNeedStat::TakeNeed()
+{
+	ChangeStat(-NeedAmount);
+}
+
 
 void UNeedStat::ChangeStat(float amountChanged)
 {

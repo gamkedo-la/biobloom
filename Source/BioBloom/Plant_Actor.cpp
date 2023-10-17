@@ -49,14 +49,17 @@ bool APlant_Actor::Die()
 void APlant_Actor::Grow()
 {
 	//check if the there is enough resources in the need stat to grow
-	for each (UNeedStat* need in needs)
+	for (int32 Index = 0; Index < needs.Num(); Index++)
 	{
+		UNeedStat* need = needs[Index];
 		if (need->currentStat == 0)
 		{
 			//plant will dgrade if not enough resources
-			PlantHealth -= DegradationAmount;
+			SetHealth(PlantHealth -= DegradationAmount);
 			return;
 		}
+
+		need->TakeNeed();
 	}
 	growth += growRate;
 
