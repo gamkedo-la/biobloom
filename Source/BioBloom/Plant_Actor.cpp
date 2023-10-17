@@ -28,6 +28,8 @@ void APlant_Actor::Grow()
 	{
 		if (need->currentStat == 0)
 		{
+			//plant will dgrade if not enough resources
+			PlantHealth -= DegradationAmount;
 			return;
 		}
 	}

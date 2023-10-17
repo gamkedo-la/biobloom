@@ -14,11 +14,18 @@ class BIOBLOOM_API APlant_Actor : public AActor
 {
 	GENERATED_BODY()
 	float growth;
+
 	UFUNCTION()
 	void Grow();
 public:	
 	// Sets default values for this actor's properties
 	APlant_Actor();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float PlantHealth = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float DegradationAmount = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float waterNeed;
