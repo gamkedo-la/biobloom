@@ -14,6 +14,7 @@ APlant_Actor::APlant_Actor()
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
 	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
+	needs.Add(waterStat);
 	waterStatTimer = CreateDefaultSubobject<UTimer>("WaterStatTimer");
 	growthTimer = CreateDefaultSubobject<UTimer>("GrowTimer");
 
@@ -22,6 +23,14 @@ APlant_Actor::APlant_Actor()
 //This function should hadle growing the plant
 void APlant_Actor::Grow()
 {
+	//check if the there is enough resources in the need stat to grow
+	for each (UNeedStat* need in needs)
+	{
+		if (need->currentStat == 0)
+		{
+			return;
+		}
+	}
 	growth += growRate;
 
 	if (growth > 1)

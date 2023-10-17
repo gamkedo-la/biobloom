@@ -21,6 +21,9 @@ public:
 	APlant_Actor();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float waterNeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float growRate;
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
@@ -33,6 +36,9 @@ public:
 
 	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UTimer* growthTimer;
+
+	UPROPERTY(EditAnywhere, Instanced)
+	TArray <class UNeedStat*> needs;
 
 	UFUNCTION(BlueprintCallable)
 	void SetPlantSize(const float size);
