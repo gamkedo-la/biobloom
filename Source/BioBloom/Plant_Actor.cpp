@@ -20,6 +20,31 @@ APlant_Actor::APlant_Actor()
 
 	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
 }
+//this section will control functions related to health
+#pragma region Health
+float APlant_Actor::GetHealth()
+{
+	return PlantHealth;
+}
+void APlant_Actor::SetHealth(float Health)
+{
+	PlantHealth = Health;
+
+	if (PlantHealth <= 0)
+		Die();
+}
+bool APlant_Actor::Die()
+{
+	bool hasDied = false;
+
+	Destroy();
+	hasDied = true;
+
+	return hasDied;
+}
+#pragma endregion
+
+
 //This function should hadle growing the plant
 void APlant_Actor::Grow()
 {

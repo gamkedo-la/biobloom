@@ -21,8 +21,19 @@ public:
 	// Sets default values for this actor's properties
 	APlant_Actor();
 
+#pragma region Health
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PlantHealth = 1;
+
+	UFUNCTION()
+	float GetHealth();
+	UFUNCTION()
+	void SetHealth(float Health);
+	UFUNCTION()
+	bool Die();
+#pragma endregion
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float DegradationAmount = 1;
