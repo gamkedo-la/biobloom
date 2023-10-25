@@ -70,6 +70,7 @@ void APlant_Actor::Grow()
 
 	SetPlantSize(growth);
 
+	PlantGrew.Broadcast();
 	
 }
 void APlant_Actor::SetPlantSize(const float size)
