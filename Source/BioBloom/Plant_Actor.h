@@ -9,6 +9,8 @@
 #include "NeedStat.h"
 #include "Plant_Actor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGrow);
+
 UCLASS(Blueprintable,ClassGroup = (Custom), meta = (BlueprintSpawnableActor))
 class BIOBLOOM_API APlant_Actor : public AActor
 {
@@ -40,6 +42,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float growRate;
+
+	UPROPERTY(BlueprintAssignable)
+	FGrow PlantGrew;
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* plantMesh;

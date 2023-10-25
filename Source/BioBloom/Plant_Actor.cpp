@@ -69,6 +69,8 @@ void APlant_Actor::Grow()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(growth));
 
 	SetPlantSize(growth);
+
+	
 }
 void APlant_Actor::SetPlantSize(const float size)
 {
