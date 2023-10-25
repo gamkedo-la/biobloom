@@ -15,7 +15,7 @@ APlant_Actor::APlant_Actor()
 
 	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
 	needs.Add(waterStat);
-	waterStatTimer = CreateDefaultSubobject<UTimer>("WaterStatTimer");
+
 	growthTimer = CreateDefaultSubobject<UTimer>("GrowTimer");
 
 	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;

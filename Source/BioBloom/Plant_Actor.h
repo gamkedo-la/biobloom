@@ -46,8 +46,6 @@ public:
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UNeedStat* waterStat;
-	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
-	UTimer* waterStatTimer;
 
 	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UTimer* growthTimer;
