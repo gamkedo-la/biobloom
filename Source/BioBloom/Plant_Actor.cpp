@@ -42,8 +42,8 @@ bool APlant_Actor::Die()
 
 	return hasDied;
 }
-#pragma endregion
 
+#pragma endregion
 
 //This function should hadle growing the plant
 void APlant_Actor::Grow()
@@ -66,12 +66,9 @@ void APlant_Actor::Grow()
 	if (growth > 1)
 		growth = 1;
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(growth));
-
 	SetPlantSize(growth);
 
-	PlantGrew.Broadcast();
-	
+	PlantGrewEvent();
 }
 void APlant_Actor::SetPlantSize(const float size)
 {
