@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Timer.h"
+#include "AgeComponent.h"
 #include "NeedStat.h"
 #include "Plant_Actor.generated.h"
 
@@ -52,6 +53,9 @@ public:
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* plantMesh;
+
+	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UAgeComponent* ageComponent;
 
 	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UNeedStat* waterStat;

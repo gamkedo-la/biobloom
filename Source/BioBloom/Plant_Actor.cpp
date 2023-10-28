@@ -13,6 +13,8 @@ APlant_Actor::APlant_Actor()
 	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("PlantMesh");
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
+	ageComponent = CreateDefaultSubobject<UAgeComponent>("PlantAge");
+
 	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
 	needs.Add(waterStat);
 
