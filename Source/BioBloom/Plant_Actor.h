@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
+#include "PlantUIElements.h"
 #include "Timer.h"
 #include "AgeComponent.h"
 #include "NeedStat.h"
@@ -51,16 +52,19 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FGrowDelegate PlantGrewDelegate;
 
-	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* plantMesh;
 
-	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPlantUIElements* plantUIElements;
+
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UAgeComponent* ageComponent;
 
-	UPROPERTY(Instanced,EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UNeedStat* waterStat;
 
-	UPROPERTY(Instanced, EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UTimer* growthTimer;
 
 	UPROPERTY(EditAnywhere, Instanced)

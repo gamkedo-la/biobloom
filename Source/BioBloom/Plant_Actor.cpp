@@ -10,15 +10,17 @@ APlant_Actor::APlant_Actor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("PlantMesh");
+	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("Plant Mesh");
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
-	ageComponent = CreateDefaultSubobject<UAgeComponent>("PlantAge");
+	ageComponent = CreateDefaultSubobject<UAgeComponent>("Plant Age");
 
-	waterStat = CreateDefaultSubobject<UNeedStat>("WaterStat");
+	waterStat = CreateDefaultSubobject<UNeedStat>("Water Stat");
 	needs.Add(waterStat);
 
-	growthTimer = CreateDefaultSubobject<UTimer>("GrowTimer");
+	growthTimer = CreateDefaultSubobject<UTimer>("Growth Timer");
+
+	plantUIElements = CreateDefaultSubobject<UPlantUIElements>("UIElements");
 
 	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
 }
