@@ -10,7 +10,7 @@ UAgeComponent::UAgeComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	ageTimer = CreateDefaultSubobject<UTimer>("GrowTimer");
+	ageTimer = CreateDefaultSubobject<UTimer>("AgeTimer");
 	ageTimer->TimerFinished.AddDynamic(this, &UAgeComponent::Age);
 	// ...
 }
