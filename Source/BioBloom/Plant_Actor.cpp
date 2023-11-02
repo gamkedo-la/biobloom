@@ -13,13 +13,8 @@ APlant_Actor::APlant_Actor()
 
 	// Create the Widget Component
 	WorldSpaceWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WorldSpaceWidget"));
-	RootComponent = WorldSpaceWidgetComponent; // Attach it to the root component, or choose another component to attach it to.
+	WorldSpaceWidgetComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform); // Attach it to the root component, or choose another component to attach it to.
 
-	// Set the interaction mode to World Space
-	WorldSpaceWidgetComponent->SetWidgetSpace(EWidgetSpace::World);
-
-	// Set the relative location of the widget
-	WorldSpaceWidgetComponent->SetRelativeLocation(FVector(0, 0, 100)); // Adjust this as needed
 
 	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("Plant Mesh");
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
