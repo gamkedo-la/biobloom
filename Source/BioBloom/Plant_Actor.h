@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/WidgetComponent.h"
+#include "PlantUIWidget.h"
 #include "PlantUIElements.h"
 #include "Timer.h"
 #include "AgeComponent.h"
@@ -54,9 +56,13 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* plantMesh;
+#pragma region UI
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = UI)
+	UWidgetComponent* WorldSpaceWidgetComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UPlantUIElements* plantUIElements;
+#pragma endregion
 
 	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UAgeComponent* ageComponent;

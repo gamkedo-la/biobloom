@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "Runtime/UMG/Public/UMG.h"
+#include "Slate.h"
 #include "Plant_Actor.h"
 
 
@@ -9,6 +10,16 @@ APlant_Actor::APlant_Actor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	// Create the Widget Component
+	WorldSpaceWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WorldSpaceWidget"));
+	RootComponent = WorldSpaceWidgetComponent; // Attach it to the root component, or choose another component to attach it to.
+
+	// Set the interaction mode to World Space
+	WorldSpaceWidgetComponent->SetWidgetSpace(EWidgetSpace::World);
+
+	// Set the relative location of the widget
+	WorldSpaceWidgetComponent->SetRelativeLocation(FVector(0, 0, 100)); // Adjust this as needed
 
 	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("Plant Mesh");
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -20,9 +31,11 @@ APlant_Actor::APlant_Actor()
 
 	growthTimer = CreateDefaultSubobject<UTimer>("Growth Timer");
 
+	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
+
 	plantUIElements = CreateDefaultSubobject<UPlantUIElements>("UIElements");
 
-	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
+
 }
 //this section will control functions related to health
 #pragma region Health
@@ -87,7 +100,8 @@ void APlant_Actor::BeginPlay()
 	//when plant is created growth and mesh size should always start at 0
 	growth = 0;
 	SetPlantSize(growth);
-	
+
+
 }
 
 // Called every frame
