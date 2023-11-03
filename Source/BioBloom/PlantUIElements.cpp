@@ -2,7 +2,8 @@
 
 
 #include "PlantUIElements.h"
-
+#include "Blueprint/UserWidget.h"
+#include "UMG/Public/UMG.h"
 // Sets default values for this component's properties
 UPlantUIElements::UPlantUIElements()
 {
@@ -21,6 +22,11 @@ void UPlantUIElements::BeginPlay()
 
 	// ...
 	
+}
+
+UTexture2D* UPlantUIElements::GetTexture()
+{
+	return MyTexture;
 }
 
 
