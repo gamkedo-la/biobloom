@@ -11,10 +11,8 @@ APlant_Actor::APlant_Actor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// Create the Widget Component
 	WorldSpaceWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WorldSpaceWidget"));
 	WorldSpaceWidgetComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform); // Attach it to the root component, or choose another component to attach it to.
-
 
 	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("Plant Mesh");
 	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -29,8 +27,6 @@ APlant_Actor::APlant_Actor()
 	growthTimer->TimerFinished.AddDynamic(this, &APlant_Actor::Grow);;
 
 	plantUIElements = CreateDefaultSubobject<UPlantUIElements>("UIElements");
-
-
 }
 //this section will control functions related to health
 #pragma region Health
@@ -87,6 +83,28 @@ void APlant_Actor::SetPlantSize(const float size)
 	FVector fullSize = FVector(size);
 	plantMesh->SetWorldScale3D(fullSize);
 }
+bool APlant_Actor::SetUpUI()
+{
+
+	// Create the Widget Component
+
+	if (!WorldSpaceWidgetComponent)
+		return false;
+
+	
+	if (!WorldSpaceWidgetComponent->GetWidget())
+		return false;
+	
+	UPlantUIWidget* plantUI = Cast<UPlantUIWidget>(WorldSpaceWidgetComponent->GetWidget());
+	if (plantUI)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Worked");
+		plantUI->SetPlantImage(plantUIElements->GetTexture());
+	}
+
+
+	return true;
+}
 // Called when the game starts or when spawned
 void APlant_Actor::BeginPlay()
 {
@@ -96,6 +114,7 @@ void APlant_Actor::BeginPlay()
 	growth = 0;
 	SetPlantSize(growth);
 
+	SetUpUI();
 
 }
 

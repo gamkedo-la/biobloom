@@ -79,6 +79,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetPlantSize(const float size);
 
+	bool SetUpUI();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
