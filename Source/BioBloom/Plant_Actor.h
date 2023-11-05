@@ -54,7 +54,7 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FGrowDelegate PlantGrewDelegate;
 
-	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
+	UPROPERTY(EditAnywhere,Instanced, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* plantMesh;
 #pragma region UI
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = UI)
