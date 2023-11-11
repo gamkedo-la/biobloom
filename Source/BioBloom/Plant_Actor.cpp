@@ -100,6 +100,7 @@ bool APlant_Actor::SetUpUI()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Worked");
 		plantUI->SetPlantImage(plantUIElements->GetTexture());
+		plantUI->SetPlantDescription(plantUIElements->GetDescription());
 	}
 
 

@@ -29,7 +29,7 @@ protected:
 public:
 	UTexture2D* GetTexture();
 
-	FString* GetDescription();
+	FText GetDescription();
 
 public:	
 	// Called every frame

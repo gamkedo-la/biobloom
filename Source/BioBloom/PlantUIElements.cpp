@@ -29,9 +29,10 @@ UTexture2D* UPlantUIElements::GetTexture()
 	return MyTexture;
 }
 
-FString* UPlantUIElements::GetDescription()
+FText UPlantUIElements::GetDescription()
 {
-	return &Description;
+	FText text = FText::FromString(Description);
+	return text;
 }
 
 
