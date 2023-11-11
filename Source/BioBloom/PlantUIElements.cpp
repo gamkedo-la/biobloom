@@ -29,6 +29,11 @@ UTexture2D* UPlantUIElements::GetTexture()
 	return MyTexture;
 }
 
+FString* UPlantUIElements::GetDescription()
+{
+	return &Description;
+}
+
 
 // Called every frame
 void UPlantUIElements::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
