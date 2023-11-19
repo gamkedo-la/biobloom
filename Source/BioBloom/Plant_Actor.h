@@ -65,6 +65,9 @@ public:
 #pragma endregion
 
 	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
+	USceneComponent* defaultSceneRoot;
+
+	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)
 	UAgeComponent* ageComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Components", BlueprintReadWrite)

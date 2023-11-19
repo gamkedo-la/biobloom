@@ -11,11 +11,18 @@ APlant_Actor::APlant_Actor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	WorldSpaceWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WorldSpaceWidget"));
-	WorldSpaceWidgetComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform); // Attach it to the root component, or choose another component to attach it to.
+	defaultSceneRoot = CreateDefaultSubobject<USceneComponent>("DefaultSceneRoot");
+	RootComponent = defaultSceneRoot;
 
 	plantMesh = CreateDefaultSubobject<UStaticMeshComponent>("Plant Mesh");
-	plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	plantMesh->AttachToComponent(defaultSceneRoot, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+	//plantMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	
+	WorldSpaceWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WorldSpaceWidget"));
+	WorldSpaceWidgetComponent->AttachToComponent(defaultSceneRoot, FAttachmentTransformRules::KeepRelativeTransform); // Attach it to the root component, or choose another component to attach it to.
+
+
+//plantMesh->SetRelativeLocation(RootComponent.location)
 
 	ageComponent = CreateDefaultSubobject<UAgeComponent>("Plant Age");
 
@@ -98,7 +105,7 @@ bool APlant_Actor::SetUpUI()
 	UPlantUIWidget* plantUI = Cast<UPlantUIWidget>(WorldSpaceWidgetComponent->GetWidget());
 	if (plantUI)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Worked");
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Worked");
 		plantUI->SetPlantImage(plantUIElements->GetTexture());
 		plantUI->SetPlantDescription(plantUIElements->GetDescription());
 	}
