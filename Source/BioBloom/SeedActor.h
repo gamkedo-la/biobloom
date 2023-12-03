@@ -22,6 +22,10 @@ public:
 	UPROPERTY(EditAnywhere, Instanced, Category = "Components", BlueprintReadWrite)
 	UStaticMeshComponent* seedMesh;
 
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void GrowSeed();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

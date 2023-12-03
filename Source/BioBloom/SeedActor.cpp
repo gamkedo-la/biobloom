@@ -17,6 +17,11 @@ ASeedActor::ASeedActor()
 
 }
 
+void ASeedActor::GrowSeed()
+{
+	seedMesh->SetRelativeScale3D(FVector(1));
+}
+
 // Called when the game starts or when spawned
 void ASeedActor::BeginPlay()
 {
